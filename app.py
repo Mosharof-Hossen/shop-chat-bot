@@ -73,7 +73,7 @@ def init_chatbot(_db):
     )
     
     chain = ConversationalRetrievalChain.from_llm(
-        llm=OpenAI(temperature=0.2 , model="gpt-4o-mini"),
+        llm=ChatOpenAI(temperature=0.2 , model="gpt-4o-mini"),
         retriever=_db.as_retriever(),
         memory=memory,
         combine_docs_chain_kwargs={"prompt": QA_PROMPT},
